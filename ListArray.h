@@ -65,6 +65,27 @@ void ListArray<T>::resize(int new_size) {
     arr = new_arr;
     max = new_size;
 }
+template <typename T>
+T ListArray<T>::get(int pos) {
+    if (pos < 0 || pos >= n) throw std::out_of_range("Posición inválida");
+    return arr[pos];
+}
 
+template <typename T>
+int ListArray<T>::search(T e) {
+    for (int i = 0; i < n; ++i)
+        if (arr[i] == e) return i;
+    return -1;  // No encontrado
+}
+
+template <typename T>
+bool ListArray<T>::empty() {
+    return n == 0;
+}
+
+template <typename T>
+int ListArray<T>::size() {
+    return n;
+}
 #endif
 
